@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('../css/variables.css');
+@import url('../img/Batman background.png');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Instrument Serif', serif;
+}
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Termina no lugar certo */
+    }
+}
+@keyframes backgroundFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.5;
+        transform: translateY(0px);
+    }
+}
+header {
+    background-color: var(--primary-color);
+    color: var(--fifth-color);
+    padding: 2px 4%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       .logo{
+            width: 140px;
+            margin: 4px 4px;
+        }
+        #menu-btn{
+            color: var(--ninth-color);
+            font-size: 2rem;
+            background-color: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+
+        ul{
+            display: none;
+            list-style: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+            position:absolute;
+            top: 70px;
+            background-color: var(--primary-color);
+            left: 0;
+            padding: 1rem;
+
+            &.show{
+                display: flex;
+            }
+
+            li{
+                text-align: center;
+                a{
+                    text-decoration: none;
+                    color: var(--sixth-color);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    &:hover{
+                        color: var(--fourth-color);
+                        border-bottom: 1px solid var(--fourth-color);
+                    }
+                }
+            }
+        }
+    }
+}
+body{
+    background-color: var(--primary-color);
+}
+main{
+    #home{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: var(--secondary-color);
+        overflow: hidden; /* Garante que o ::before não escape dos limites */
+
+            &::before {
+                content: ""; 
+                animation: backgroundFadeIn 1s ease-in-out;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+        
+                
+                background-image: url('../img/Batman background.png'); 
+                background-size: cover;
+                background-position: center;
+                opacity: 0.5;
+        
+                z-index: 0;/* Fica acima do fundo preto, mas... */
+            }
+            .home-overlay {
+                position: relative;
+                z-index: 1;
+            }
+            .home-title{
+                animation: surgir 2s ease-out;
+                font-size: 5rem;
+                color: var(--ninth-color);
+                
+            }
+            .home-text{
+                animation: surgir 2s ease-in;
+                font-size: 1.5rem;
+                color: var(--tenth-color);
+            }   
+    }
+    div{
+        color: var(--tenth-color);
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        
+    }
+    .about-section{
+        display: flex;
+        color: var(--sixth-color);
+        padding: 40px 10px;
+        .about-content{
+            flex: 1;
+            padding: 20px;
+            text-align: right;
+            padding-top: 170px;
+        }
+        .reeves-image{
+            animation: surgir 2s ease-out;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 50px 50px;
+        }
+        h2{
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 5rem;
+            text-align: center;
+            color: var(--ninth-color);
+            
+        }
+        p{
+            position: absolute;
+            max-width: 45%;
+            font-size: 1.5rem;
+            margin-left: 52px;
+            text-align: justify;
+            
+            
+        }
+    }
+
+    .elenco-section {
+        display: flex;
+        color: var(--sixth-color);
+        padding: 40px 0; /* Ajustado padding lateral */
+        justify-content: center; /* Centraliza o bloco na tela */
+    
+        .elenco-content {
+            width: 100%;
+            max-width: 1400px; /* Limita a largura em telas muito grandes */
+            padding: 20px;
+            text-align: center;
+
+            h2 {
+                width: 100%;
+                margin-bottom: 30px;
+                font-size: 4rem; /* Levemente reduzido para caber melhor em notebooks */
+                text-align: center;
+                color: var(--ninth-color);
+            }
+
+            ul {
+                width: 100%;
+                display: flex;
+                gap: 30px; /* Espaço entre os cards */
+                list-style: none;
+                padding: 20px 10px 40px 10px; /* Padding extra embaixo para a scrollbar não colar */
+            
+                /* Configuração do Scroll Horizontal */
+                overflow-x: auto; 
+                scroll-snap-type: x proximity;
+                scroll-behavior: smooth;
+                scrollbar-width: none; 
+
+                /* 2. Esconde no IE e Edge antigo */
+                -ms-overflow-style: none; 
+
+                /* 3. Esconde no Chrome, Safari e novas versões do Edge */
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                li {
+                    /* AQUI ESTÁ A MÁGICA DA PROPORÇÃO */
+                    /* flex: 0 0 auto -> O item não cresce nem encolhe, respeita a largura fixa */
+                    flex: 0 0 auto; 
+                    width: 280px; /* Largura fixa ideal para card em notebook */
+                
+                    background-color: var(--primary-color);
+                    padding: 20px;
+                    border-radius: 12px; /* Borda levemente arredondada no card */
+                
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                
+                    scroll-snap-align: start; /* Alinha o card ao início ao rolar */
+                    transition: transform 0.3s ease;
+
+                    /* Efeito hover para destaque */
+                    &:hover {
+                        transform: translateY(-10px);
+                    }
+
+                    img {
+                        width: 220px;
+                        height: 220px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        border: 3px solid var(--fourth-color);
+                        margin-bottom: 15px;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
+                    }
+                }          
+            }
+        }
+    }
+}
+

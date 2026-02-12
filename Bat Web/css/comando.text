@@ -1,0 +1,40 @@
+ #menu-btn{
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--sixth-color);
+            cursor: pointer;
+        }
+        ul{
+            display: none;
+            list-style: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+            position:absolute;
+            top: 80px;
+            background-color: var(--primary-color);
+            left: 0;
+            padding: 1rem;
+
+            &.show{
+                display: flex;
+            }
+
+            li{
+                text-align: center;
+                a{
+                    text-decoration: none;
+                    color: var(--sixth-color);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    &:hover{
+                        color: var(--fourth-color);
+                        border-bottom: 1px solid var(--fourth-color);
+                }
+            }
+        }
+
+    }
