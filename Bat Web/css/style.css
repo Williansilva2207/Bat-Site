@@ -10,11 +10,11 @@
 @keyframes surgir {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Começa um pouco abaixo */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0);    /* Termina no lugar certo */
+        transform: translateY(0);    
     }
 }
 @keyframes backgroundFadeIn {
@@ -99,7 +99,7 @@ main{
         justify-content: center;
         position: relative;
         background-color: var(--secondary-color);
-        overflow: hidden; /* Garante que o ::before não escape dos limites */
+        overflow: hidden; 
 
             &::before {
                 content: ""; 
@@ -116,7 +116,7 @@ main{
                 background-position: center;
                 opacity: 0.5;
         
-                z-index: 0;/* Fica acima do fundo preto, mas... */
+                z-index: 0;
             }
             .home-overlay {
                 position: relative;
@@ -180,19 +180,18 @@ main{
     .elenco-section {
         display: flex;
         color: var(--sixth-color);
-        padding: 40px 0; /* Ajustado padding lateral */
-        justify-content: center; /* Centraliza o bloco na tela */
-    
+        padding: 40px 0; 
+        justify-content: center;     
         .elenco-content {
             width: 100%;
-            max-width: 1400px; /* Limita a largura em telas muito grandes */
+            max-width: 1400px; 
             padding: 20px;
             text-align: center;
 
             h2 {
                 width: 100%;
                 margin-bottom: 30px;
-                font-size: 4rem; /* Levemente reduzido para caber melhor em notebooks */
+                font-size: 4rem; 
                 text-align: center;
                 color: var(--ninth-color);
             }
@@ -200,43 +199,38 @@ main{
             ul {
                 width: 100%;
                 display: flex;
-                gap: 30px; /* Espaço entre os cards */
+                gap: 30px; 
                 list-style: none;
-                padding: 20px 10px 40px 10px; /* Padding extra embaixo para a scrollbar não colar */
+                padding: 20px 10px 40px 10px; 
             
-                /* Configuração do Scroll Horizontal */
                 overflow-x: auto; 
                 scroll-snap-type: x proximity;
                 scroll-behavior: smooth;
                 scrollbar-width: none; 
 
-                /* 2. Esconde no IE e Edge antigo */
                 -ms-overflow-style: none; 
 
-                /* 3. Esconde no Chrome, Safari e novas versões do Edge */
                 &::-webkit-scrollbar {
                     display: none;
                 }
 
                 li {
-                    /* AQUI ESTÁ A MÁGICA DA PROPORÇÃO */
-                    /* flex: 0 0 auto -> O item não cresce nem encolhe, respeita a largura fixa */
                     flex: 0 0 auto; 
-                    width: 280px; /* Largura fixa ideal para card em notebook */
+                    width: 280px; 
                 
                     background-color: var(--primary-color);
                     padding: 20px;
-                    border-radius: 12px; /* Borda levemente arredondada no card */
+                    border-radius: 12px; 
                 
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                 
-                    scroll-snap-align: start; /* Alinha o card ao início ao rolar */
+                    scroll-snap-align: start; 
                     transition: transform 0.3s ease;
 
-                    /* Efeito hover para destaque */
+                    
                     &:hover {
                         transform: translateY(-10px);
                     }
@@ -248,7 +242,7 @@ main{
                         border-radius: 50%;
                         border: 3px solid var(--fourth-color);
                         margin-bottom: 15px;
-                        box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
                     }
                 }          
             }
