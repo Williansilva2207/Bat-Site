@@ -115,7 +115,7 @@ Durante o desenvolvimento deste projeto, foram praticados:
 * Tornar o site totalmente responsivo
 * Adicionar animações com CSS ou JS
 * Implementar consumo de API (ex: filmes)
-* Melhorar acessibilidade (A11y)
+* Melhorar acessibilidade 
 * Refatorar organização do código
 
 ---
